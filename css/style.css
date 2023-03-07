@@ -53,11 +53,19 @@ body {
   
     }
   
-    .box .box {
+    .box .barepatch {
       background-image: url("../images/soil.jpg");
       background-size: contain; 
       height: 80px;
       width: 80px;
+    }
+
+    .box .watered {
+      background-image: url("../images/puddle.png"), url("../images/soil.jpg");
+      background-size: contain; 
+    }
+
+    .box .barepatch, .box .watered {
       border: 2px #3F3F3F solid;
       border-radius: 15%;
       filter: brightness(1.5);
@@ -95,7 +103,7 @@ body {
 
 /* FARMING PATCH */
 
-.patch {
+.barepatch {
   justify-self: center;
   align-self: center;
 }

@@ -1,19 +1,18 @@
 // Generate 16 soil patches
 
-let soil = '';
+let soilHTML = '';
 
   for (let i = 0; i < 16; i++) {
-    soil +=
-    `<div class="box patch"></div>
+    soilHTML +=
+    `<div class="barepatch"></div>
       `;  
 }
 
-document.querySelector('.field_section').insertAdjacentHTML('beforeend', soil); 
+document.querySelector('.field_section').insertAdjacentHTML('beforeend', soilHTML); 
 
 // Generate random number request board
 
 let cropPlayer = 0;
-
 const randomNumber = new Set();
 
     // creates a loop which adds 3x random number between 1 and 5 to a set
@@ -32,7 +31,7 @@ let requestBoard =
     `
 document.querySelector('.request_section').insertAdjacentHTML('beforeend', requestBoard); 
 
-
+// Selecting a tile - has it been selected?
 
 
 
