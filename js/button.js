@@ -1,15 +1,20 @@
-// Selecting the WATER tool
+// Selecting AND Delescting the WATER tool
 
 let water = document.getElementById('prepare_soil');
 let waterClicked = false;
 
-water.addEventListener("click", checkClickedState);
-
- function checkClickedState() {
-    this.style.opacity = "0.7";
-    waterClicked = true;
-    console.log('Water tool selected');
- }
+water.addEventListener("click", function changeClickedState() {
+    
+    if(waterClicked) {
+      waterClicked = false;
+      this.style.opacity = "1";
+      console.log('Water tool deselected');
+    } else {
+        this.style.opacity = "0.7";
+        waterClicked = true;
+        console.log('Water tool selected');
+    }
+  }); 
 
 // Selecting an individual SOIL patch with water tool selected and changing state.
 
