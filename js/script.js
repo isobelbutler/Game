@@ -31,7 +31,5 @@ let requestBoard =
     `
 document.querySelector('.request_section').insertAdjacentHTML('beforeend', requestBoard); 
 
-// Selecting a tile - has it been selected?
-
 
 
