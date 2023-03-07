@@ -8,7 +8,7 @@ let soil = '';
       `;  
 }
 
-document.querySelector('.b').insertAdjacentHTML('beforeend', soil); 
+document.querySelector('.field_section').insertAdjacentHTML('beforeend', soil); 
 
 // Generate random number request board
 
@@ -30,7 +30,7 @@ let requestBoard =
     <p>Carrots: ${cropPlayer}/${cropTarget[1]}</p>
     <p>Potatoes: ${cropPlayer}/${cropTarget[2]}</p>
     `
-document.querySelector('.a').insertAdjacentHTML('beforeend', requestBoard); 
+document.querySelector('.request_section').insertAdjacentHTML('beforeend', requestBoard); 
 
 
 

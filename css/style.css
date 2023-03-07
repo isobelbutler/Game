@@ -11,61 +11,68 @@ main {
   height: 100vh;
 }
   
+/* FONTS */
+
+body {
+  color: white;
+}
+
+.request_section p {
+  text-align: left;
+  font-size: 20px;
+}
+
 /* GRID LAYOUT */
     .wrapper {
       display: grid;
       grid-gap: 10px;
       grid-template-columns: 1fr 1.5fr  ;
       grid-template-rows: auto auto ;
-      color: #444;
       margin: auto; 
       width: 950px;
     }
   
     .box {
       background-color: #444;
-      color: #fff;
       border-radius: 5px;
       padding: 20px;
-      font-size: 150%;
   
     }
   
     .box .box {
       background-image: url("../images/soil.jpg");
       background-size: contain; 
-      color: #444;
     }
     
-    .a {
+    .request_section {
       background: url("../images/chalkboard.png") no-repeat center;
       background-size: contain; 
       padding-top: 35px;
       padding-left: 150px;    
     }
 
-    .a p {
-      text-align: left;
-      font-size: 20px;
-    }
-
-    .b {
+    .field_section {
       display: grid;
       grid-gap: 10px;
       grid-template-columns: auto auto auto auto;
     }
 
-    .patch {
+    .controls_section {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr  1fr  1.5fr;
     }
 
-    .heading
-    {
-      grid-column: 1/-1;
+    .control {
+      background-color: antiquewhite;
+      border: 1px black solid;
+      justify-self: center;
+      align-self: center;
     }
 
-  
-/*  */
+    .heading {
+      grid-column: 1/-1; /* gets header to span all columns */
+    }
 
-#chalkboard_img {
-  width: 100%; 
-}
+/* REQUEST BOARD */
+
+    
