@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #91DCBA;
+  }
+
+main {
+  display: grid;
+  height: 100vh;
+}
+  
+/* GRID LAYOUT */
+    .wrapper {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr 1.5fr  ;
+      grid-template-rows: auto auto ;
+      color: #444;
+      margin: auto; 
+      width: 950px;
+    }
+  
+    .box {
+      background-color: #444;
+      color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      font-size: 150%;
+  
+    }
+  
+    .box .box {
+      background-image: url("../images/soil.jpg");
+      background-size: contain; 
+      color: #444;
+    }
+    
+    .a {
+      background: url("../images/chalkboard.png") no-repeat center;
+      background-size: contain; 
+      padding-top: 35px;
+      padding-left: 150px;    
+    }
+
+    .a p {
+      text-align: left;
+      font-size: 20px;
+    }
+
+    .b {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: auto auto auto auto;
+    }
+
+    .patch {
+    }
+
+    .heading
+    {
+      grid-column: 1/-1;
+    }
+
+  
+/*  */
+
+#chalkboard_img {
+  width: 100%; 
+}
