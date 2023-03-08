@@ -9,12 +9,18 @@ let carrots = document.querySelectorAll('.carrot_ready');
 let potatoes = document.querySelectorAll('.potato_ready');
 let lettuces = document.querySelectorAll('.lettuce_ready');
 
+let carrotPlayerCount = document.getElementById('carrot_count');
+let lettucePlayerCount = document.getElementById('lettuce_count');
+let potatoPlayerCount = document.getElementById('potato_count');
+
 
 let isWatering = false;
 let isHarvesting = false;
 let isPlantingCarrots = false;
 let isPlantingLettuce = false;
 let isPlantingPotato = false;
+
+
 
 // Functions
 function toggleWatering() {
@@ -101,7 +107,6 @@ function plantPotato(patch) {
       setTimeout(() => {
         patch.classList.add('potato_ready');
         patch.classList.remove('potato_sown');
-  
         console.log(`Potato in patch ${patch.dataset.id} is ready`);
       }, 3000);
     } else {
@@ -111,7 +116,14 @@ function plantPotato(patch) {
 
 function harvestPatch(patch) {
     if (isHarvesting && patch.classList.contains('carrot_ready')) {
-        cropTarget[0] += 1;
+        carrotPlayer += 1;
+        console.log(`You've harvested ${carrotPlayer}/${cropTarget[1]} carrots!`);
+        patch.classList.add('barepatch');
+        patch.classList.remove('carrot_ready');
+        carrotPlayerCount.innerHTML = `Carrots: ${carrotPlayer}/${cropTarget[1]}`;
+
+    } else {
+        console.log('Carrots not harvested.');
     }
 
 }
@@ -135,3 +147,5 @@ for (let i = 0; i < soilPatches.length; i++) {
     harvestPatch(patch);
   });
 }
+
+

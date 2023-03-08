@@ -1,35 +1,51 @@
-// Generate 16 soil patches
+// Variables
 
 let soilHTML = '';
 
-  for (let i = 0; i < 16; i++) {
-    soilHTML +=
-    `<div class="barepatch"></div>
-      `;  
-}
 
-document.querySelector('.field_section').insertAdjacentHTML('beforeend', soilHTML); 
+let requestBoard = '';
 
-// Generate random number request board
+let lettucePlayer = 0;
+let carrotPlayer = 0;
+let potatoPlayer = 0;
+let cropTarget = '';
 
-let cropPlayer = 0;
 const randomNumber = new Set();
 
-    // creates a loop which adds 3x random number between 1 and 5 to a set
-while ( randomNumber.size !== 3 ) {
-    randomNumber.add(Math.floor(Math.random() * 5) + 1);
+
+// Loops
+
+  // Generate 16 soil patches
+    // 1. creates a for loop which generates the soilHTML 16 times.
+    // 2. inserts this HTML into the document.
+
+    for (let i = 0; i < 16; i++) {
+      soilHTML +=
+      `<div class="barepatch"></div>`;  
     }
-
-    // stores the numbers from the set in an array to make each value easily accesible via it's index number
-let cropTarget = Array.from(randomNumber);
-let requestBoard =
-    `
-    <h2>Requests</h2>
-    <p>Lettuce: ${cropPlayer}/${cropTarget[0]}</p>
-    <p>Carrots: ${cropPlayer}/${cropTarget[1]}</p>
-    <p>Potatoes: ${cropPlayer}/${cropTarget[2]}</p>
-    `
-document.querySelector('.request_section').insertAdjacentHTML('beforeend', requestBoard); 
-
-
-
+    
+      document.querySelector('.field_section').insertAdjacentHTML('beforeend', soilHTML); 
+    
+      // Generate random number request board
+    
+        // 1. creates a while loop which runs until 3x random number between 1 and 5 have been added to a set
+        // 2. stores the numbers from the set in the cropTarget array to make each value easily accesible via it's index number
+        // 3. Adds the array to the HTML laid over the request board.
+    
+    while ( randomNumber.size !== 3 ) {
+      randomNumber.add(Math.floor(Math.random() * 5) + 1);
+      }
+    
+      cropTarget = Array.from(randomNumber);
+      requestBoard =
+        `
+        <h2>Requests</h2>
+        <p id="lettuce_count">Lettuce: ${lettucePlayer}/${cropTarget[0]}</p>
+        <p id="carrot_count">Carrots: ${carrotPlayer}/${cropTarget[1]}</p>
+        <p id="potato_count">Potatoes: ${potatoPlayer}/${cropTarget[2]}</p>
+        `
+      document.querySelector('.request_section').insertAdjacentHTML('beforeend', requestBoard); 
+      
+    
+    
+    
