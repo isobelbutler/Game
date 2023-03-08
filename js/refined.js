@@ -175,6 +175,13 @@ function harvestPatch(patch) {
     } else {
         console.log('Nothing harvested.');
     }
+    winning();
+}
+
+function winning () {
+    if (carrotPlayer === cropTarget [1] && lettucePlayer === cropTarget[0] && potatoPlayer === cropTarget[2]) {
+        console.log('You did it!');
+    }
 }
 
 // Event listeners
