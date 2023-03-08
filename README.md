@@ -255,6 +255,7 @@ function harvestPatch(patch) {
 }
 
 #### Issue: Tool button remains selected even when clicking on another tool button. 
+
 Original code:
 <div class="box controls_section">
     <div class="control"><button class="tool_button" id="prepare_soil"></button></div>
@@ -343,3 +344,21 @@ This code turns off all other buttons when one is clicked. I'll explain using th
 The toggleHarvesting function has an event handler which listens for a click and then toggles the true/false value of the variable isHarvesting.
 The toggleHarvesting function then calls the toggleButtons function using the harvestButton as the argument. The toggleButtons function loops through all the buttons 
 and turns off all other buttons where harvestButton === harvestButton. This leaves the isHarvesting value as true, meaning it can be used, and changes the button appearance so that the user knows it's active. 
+
+#### Issue: Field grid column collapses if all tiles in row are selected.
+Solution: I forgot to apply the height/width styling to the changed classes as well as barepatch.
+Before:
+ .barepatch {
+    background-image: url("../images/soil.jpg");
+    background-size: contain; 
+    height: 80px;
+    width: 80px;
+    }
+After:
+.barepatch, .watered, .carrot_sown, .carrot_ready, .lettuce_ready, .lettuce_sown, .potato_sown, .potato_ready {
+      border: 2px #3F3F3F solid;
+      border-radius: 15%;
+      filter: brightness(1.5);
+      height: 80px;
+      width: 80px;
+    }

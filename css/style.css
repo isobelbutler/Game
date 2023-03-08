@@ -56,8 +56,6 @@ body {
     .barepatch {
       background-image: url("../images/soil.jpg");
       background-size: contain; 
-      height: 80px;
-      width: 80px;
     }
 
     .watered {
@@ -89,6 +87,8 @@ body {
       border: 2px #3F3F3F solid;
       border-radius: 15%;
       filter: brightness(1.5);
+      height: 80px;
+      width: 80px;
     }
     
     .request_section {
