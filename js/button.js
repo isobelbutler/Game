@@ -6,7 +6,7 @@
 let water = document.getElementById('prepare_soil');
 let waterClicked = false;
 
-water.addEventListener("click", function changeClickedState() {
+water.addEventListener("click", function changeWaterClickedState() {
     
     // toggles water tool true/false state 
     if(waterClicked) {
@@ -25,7 +25,7 @@ water.addEventListener("click", function changeClickedState() {
 let carrot = document.getElementById('sow_carrot');
 let carrotClicked = false;
 
-carrot.addEventListener("click", function changeClickedState() {
+carrot.addEventListener("click", function changeCarrotClickedState() {
     
     // toggles water tool true/false state 
     if(carrotClicked) {
@@ -45,9 +45,10 @@ carrot.addEventListener("click", function changeClickedState() {
 const bareSoil = Array.from(document.querySelectorAll('.barepatch'));
 let soilWatered = false;
 let wateredSoil = '';
+let carrotReady = false;
 
 for (let i = 0; i < bareSoil.length; i++) {
-    bareSoil[i].addEventListener("click", function detectClick(event) {
+    bareSoil[i].addEventListener("click", function checkSoilClick(event) {
         if (waterClicked) {
             event.target.outerHTML = `<div class="watered"></div>`;
             soilWatered = true;
@@ -56,11 +57,15 @@ for (let i = 0; i < bareSoil.length; i++) {
         }
         wateredSoil = Array.from(document.querySelectorAll('.watered'));
         for (let j = 0; j < wateredSoil.length; j++) {
-            wateredSoil[j].addEventListener("click", function checkClick(event) {
+            wateredSoil[j].addEventListener("click", function checkWaterClick(event) {
                 if (carrotClicked) {
                     event.target.setAttribute("class", "carrot_sown");
                     carrotSown = true;
                     console.log('Carrot planted!');
+                    wait(3000);
+            event.target.setAttribute("class", "carrot_ready");
+            carrotReady = true;
+            console.log('Carrot ready!');
                 } else {
                     console.log('Nope, carrot not planted.');      
                 }
@@ -68,6 +73,20 @@ for (let i = 0; i < bareSoil.length; i++) {
         };
     })
 };
+
+// let carrotSown = Array.from(document.querySelectorAll('.carrot_sown'));
+// for (let k = 0; k < carrotSown.length; k++) {
+//     carrotSown[k].addEventListener("click", function checkCarrotClick(event) {
+//         if (carrotSown) {
+//             wait(3000);
+//             event.target.setAttribute("class", "carrot_ready");
+//             carrotReady = true;
+//             console.log('Carrot ready!');
+//         } else {
+//             console.log('Nope, carrot not ready.');      
+//         }
+//     })
+// };
 
 // for (let i = 0; i < bareSoil.length; i++) {
 //     // this query selector loops through all the soil patches and adds a listener to each tile

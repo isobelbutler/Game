@@ -53,19 +53,39 @@ body {
   
     }
   
-    .box .barepatch {
+    .barepatch {
       background-image: url("../images/soil.jpg");
       background-size: contain; 
       height: 80px;
       width: 80px;
     }
 
-    .box .watered {
+    .watered {
       background-image: url("../images/puddle.png"), url("../images/soil.jpg");
       background-size: contain; 
     }
 
-    .box .barepatch, .box .watered {
+    .carrot_sown, .lettuce_sown, .potato_sown {
+      background-image: url("../images/sesame.png"), url("../images/soil.jpg");
+      background-size: contain;
+    }
+
+    .carrot_ready {
+      background-image: url("../images/carrot.png"), url("../images/soil.jpg");
+      background-size: contain;
+    }
+
+    .lettuce_ready {
+      background-image: url("../images/lettuce.png"), url("../images/soil.jpg");
+      background-size: contain;
+    }
+
+    .potato_ready {
+      background-image: url("../images/potato.png"), url("../images/soil.jpg");
+      background-size: contain;
+    }
+    
+    .barepatch, .watered, .carrot_sown, .carrot_ready, .lettuce_ready, .lettuce_sown, .potato_sown, .potato_ready {
       border: 2px #3F3F3F solid;
       border-radius: 15%;
       filter: brightness(1.5);
