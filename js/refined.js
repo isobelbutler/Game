@@ -23,34 +23,75 @@ let isPlantingPotato = false;
 
 
 // Functions
+
+
 function toggleWatering() {
   isWatering = !isWatering;
-  waterButton.style.opacity = isWatering ? 0.7 : 1;
-  console.log(`Watering is ${isWatering ? 'on' : 'off'}`);
+  toggleButtons(waterButton);
+  console.log(`Watering is ${isWatering ? 'on' : 'off'}`); // ternary operator 'isWatering' is truthy='on' or falsy='off'
 }
 
 function togglePlantingCarrots() {
   isPlantingCarrots = !isPlantingCarrots;
-  carrotButton.style.opacity = isPlantingCarrots ? 0.7 : 1;
+  toggleButtons(carrotButton);
   console.log(`Planting carrots is ${isPlantingCarrots ? 'on' : 'off'}`);
 }
 
 function togglePlantingLettuce() {
     isPlantingLettuce = !isPlantingLettuce;
-    lettuceButton.style.opacity = isPlantingLettuce ? 0.7 : 1;
+    toggleButtons(lettuceButton);
     console.log(`Planting lettuce is ${isPlantingLettuce ? 'on' : 'off'}`);
   }
 
 function togglePlantingPotato() {
     isPlantingPotato = !isPlantingPotato;
-    potatoButton.style.opacity = isPlantingPotato ? 0.7 : 1;
+    toggleButtons(potatoButton);
     console.log(`Planting potato is ${isPlantingPotato ? 'on' : 'off'}`);
   }
 
 function toggleHarvesting() {
     isHarvesting = !isHarvesting;
-    harvestButton.style.opacity = isHarvesting ? 0.7 : 1;
+    toggleButtons(harvestButton);
     console.log(`Harvesting is ${isHarvesting ? 'on' : 'off'}`);
+}
+
+function toggleButtons(activeButton) {
+    // activeButton passes the button just clicked as the argument
+    // Loop through all buttons and turn them off if not the clicked button.
+    for (let button of [waterButton, carrotButton, lettuceButton, potatoButton, harvestButton]) {
+      if (button !== activeButton) {
+        button.style.opacity = 1;
+        // Set the corresponding boolean variable to false
+        if (button === waterButton) isWatering = false;
+        if (button === carrotButton) isPlantingCarrots = false;
+        if (button === lettuceButton) isPlantingLettuce = false;
+        if (button === potatoButton) isPlantingPotato = false;
+        if (button === harvestButton) isHarvesting = false;
+      }
+    }
+    // Turn on the active button
+    activeButton.style.opacity = 0.7;
+  }
+
+function countCarrots() {
+    if ( carrotPlayer < cropTarget[1] ) {
+        carrotPlayer++;
+        carrotPlayerCount.innerHTML = `Carrots: ${carrotPlayer}/${cropTarget[1]}`;
+  }
+}
+
+function countLettuce() {
+    if ( lettucePlayer < cropTarget[0] ) {
+        lettucePlayer++;
+        lettucePlayerCount.innerHTML = `Lettuce: ${lettucePlayer}/${cropTarget[0]}`;
+    }
+  }
+
+function countPotatoes() {
+    if (potatoPlayer < cropTarget[2] ) {
+        potatoPlayer++;
+        potatoPlayerCount.innerHTML = `Potatoes: ${potatoPlayer}/${cropTarget[2]}`;
+}
 }
 
 function waterPatch(patch) {
@@ -116,28 +157,24 @@ function plantPotato(patch) {
 
 function harvestPatch(patch) {
     if (isHarvesting && patch.classList.contains('carrot_ready')) {
-        carrotPlayer += 1;
+        countCarrots();
         console.log(`You've harvested ${carrotPlayer}/${cropTarget[1]} carrots!`);
         patch.classList.add('barepatch');
         patch.classList.remove('carrot_ready');
-        carrotPlayerCount.innerHTML = `Carrots: ${carrotPlayer}/${cropTarget[1]}`;
 
     } else if (isHarvesting && patch.classList.contains('lettuce_ready')) {
-        lettucePlayer += 1;
+        countLettuce();
         console.log(`You've harvested ${lettucePlayer}/${cropTarget[0]} lettuce!`);
         patch.classList.add('barepatch');
         patch.classList.remove('lettuce_ready');
-        lettucePlayerCount.innerHTML = `Lettuce: ${lettucePlayer}/${cropTarget[0]}`;
     } else if (isHarvesting && patch.classList.contains('potato_ready')) {
-        potatoPlayer += 1;
+        countPotatoes();
         console.log(`You've harvested ${potatoPlayer}/${cropTarget[2]} potatoes!`);
         patch.classList.add('barepatch');
         patch.classList.remove('potato_ready');
-        potatoPlayerCount.innerHTML = `Potatoes: ${potatoPlayer}/${cropTarget[2]}`;
     } else {
         console.log('Nothing harvested.');
     }
-
 }
 
 // Event listeners
