@@ -122,8 +122,20 @@ function harvestPatch(patch) {
         patch.classList.remove('carrot_ready');
         carrotPlayerCount.innerHTML = `Carrots: ${carrotPlayer}/${cropTarget[1]}`;
 
+    } else if (isHarvesting && patch.classList.contains('lettuce_ready')) {
+        lettucePlayer += 1;
+        console.log(`You've harvested ${lettucePlayer}/${cropTarget[0]} lettuce!`);
+        patch.classList.add('barepatch');
+        patch.classList.remove('lettuce_ready');
+        lettucePlayerCount.innerHTML = `Lettuce: ${lettucePlayer}/${cropTarget[0]}`;
+    } else if (isHarvesting && patch.classList.contains('potato_ready')) {
+        potatoPlayer += 1;
+        console.log(`You've harvested ${potatoPlayer}/${cropTarget[2]} potatoes!`);
+        patch.classList.add('barepatch');
+        patch.classList.remove('potato_ready');
+        potatoPlayerCount.innerHTML = `Potatoes: ${potatoPlayer}/${cropTarget[2]}`;
     } else {
-        console.log('Carrots not harvested.');
+        console.log('Nothing harvested.');
     }
 
 }
