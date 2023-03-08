@@ -59,7 +59,7 @@ body {
     }
 
     .watered {
-      background-image: url("../images/puddle.png"), url("../images/soil.jpg");
+      background-image: url("../images/water.png"), url("../images/soil.jpg");
       background-size: contain; 
     }
 

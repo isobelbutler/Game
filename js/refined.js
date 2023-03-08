@@ -161,7 +161,6 @@ function harvestPatch(patch) {
         console.log(`You've harvested ${carrotPlayer}/${cropTarget[1]} carrots!`);
         patch.classList.add('barepatch');
         patch.classList.remove('carrot_ready');
-
     } else if (isHarvesting && patch.classList.contains('lettuce_ready')) {
         countLettuce();
         console.log(`You've harvested ${lettucePlayer}/${cropTarget[0]} lettuce!`);
@@ -181,6 +180,13 @@ function harvestPatch(patch) {
 function winning () {
     if (carrotPlayer === cropTarget [1] && lettucePlayer === cropTarget[0] && potatoPlayer === cropTarget[2]) {
         console.log('You did it!');
+        alert('You did it!');
+        carrotPlayer = 0;
+        lettucePlayer = 0;
+        potatoPlayer = 0;
+        generateRequestBoardHTML();
+        document.querySelector('.request_section').innerHTML = requestBoardHTML;
+
     }
 }
 
@@ -190,6 +196,7 @@ carrotButton.addEventListener('click', togglePlantingCarrots);
 lettuceButton.addEventListener('click', togglePlantingLettuce);
 potatoButton.addEventListener('click', togglePlantingPotato);
 harvestButton.addEventListener('click', toggleHarvesting);
+
 
 for (let i = 0; i < soilPatches.length; i++) {
   const patch = soilPatches[i];
