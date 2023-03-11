@@ -7,6 +7,8 @@ let lettucePlayer = 0;
 let carrotPlayer = 0;
 let potatoPlayer = 0;
 
+let gold = 0
+
 // Functions
 function generateRandomNumber() {
   return (Math.floor(Math.random() * 5) + 1);
@@ -40,3 +42,6 @@ document.querySelector('.field_section').insertAdjacentHTML('beforeend', soilHTM
 // Generate request board
 generateRequestBoardHTML();
 document.querySelector('.request_section').insertAdjacentHTML('beforeend', requestBoardHTML);
+
+// Generate gold score number
+document.querySelector('.score_text').insertAdjacentHTML('afterbegin', gold);

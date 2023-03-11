@@ -20,8 +20,6 @@ let isPlantingCarrots = false;
 let isPlantingLettuce = false;
 let isPlantingPotato = false;
 
-
-
 // Functions
 
 
@@ -184,9 +182,13 @@ function winning () {
         carrotPlayer = 0;
         lettucePlayer = 0;
         potatoPlayer = 0;
+        gold += 100;
         generateRequestBoardHTML();
-        document.querySelector('.request_section').innerHTML = requestBoardHTML;
-
+        document.querySelector('.score_text').innerHTML = gold;
+        // document.querySelector('.request_section').innerHTML = requestBoardHTML;
+        carrotPlayerCount.innerHTML = `Carrots: ${carrotPlayer}/${cropTarget[1]}`;
+        potatoPlayerCount.innerHTML = `Potatoes: ${potatoPlayer}/${cropTarget[2]}`;
+        lettucePlayerCount.innerHTML = `Lettuce: ${lettucePlayer}/${cropTarget[0]}`;
     }
 }
 

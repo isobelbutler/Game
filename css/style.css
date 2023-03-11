@@ -1,3 +1,4 @@
+/* GENERAL STYLING */
 * {
     box-sizing: border-box;
 }
@@ -15,6 +16,8 @@ main {
 
 h1 {
   text-align: center;
+  font-size: 3em;
+  margin: 0px;
 }
 
 body {
@@ -28,14 +31,16 @@ body {
 }
 
 .request_section h2, .request_section p {
-  font-family: 'Mynerve', cursive;
   color: white;
   transform: skew(0, -4deg);
+}
 
+.control p, .request_section h2, .request_section p, h1 {
+  font-family: 'Mynerve', cursive;
 }
 .request_section p {
   text-align: left;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 /* GRID LAYOUT */
@@ -43,92 +48,139 @@ body {
       display: grid;
       grid-gap: 10px;
       grid-template-columns: 1fr 1.5fr  ;
-      grid-template-rows: auto auto ;
+      grid-template-rows: auto auto auto ;
       margin: auto; 
       width: 950px;
     }
   
     .box {
       padding: 20px;
-  
-    }
-  
-    .barepatch {
-      background-image: url("../images/soil.jpg");
-      background-size: contain; 
     }
 
-    .watered {
-      background-image: url("../images/water.png"), url("../images/soil.jpg");
-      background-size: contain; 
-    }
-
-    .carrot_sown, .lettuce_sown, .potato_sown {
-      background-image: url("../images/sesame.png"), url("../images/soil.jpg");
-      background-size: contain;
-    }
-
-    .carrot_ready {
-      background-image: url("../images/carrot.png"), url("../images/soil.jpg");
-      background-size: contain;
-    }
-
-    .lettuce_ready {
-      background-image: url("../images/lettuce.png"), url("../images/soil.jpg");
-      background-size: contain;
-    }
-
-    .potato_ready {
-      background-image: url("../images/potato.png"), url("../images/soil.jpg");
-      background-size: contain;
-    }
     
-    .barepatch, .watered, .carrot_sown, .carrot_ready, .lettuce_ready, .lettuce_sown, .potato_sown, .potato_ready {
-      border: 2px #3F3F3F solid;
-      border-radius: 15%;
-      filter: brightness(1.5);
-      height: 80px;
-      width: 80px;
-    }
-    
-    .request_section {
-      background: url("../images/chalkboard.png") no-repeat center;
-      background-size: contain; 
-      padding-top: 85px;
-      padding-left: 150px;    
-    }
 
-    .field_section {
-      display: grid;
-      justify-content: center;
-      grid-gap: 10px;
-      grid-template-columns: auto auto auto auto;
-    }
+/* TITLE SECTION */
+.title {
+  grid-column: 1/-1;
+  padding: 0px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 20px;
 
-    .controls_section {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr  1fr  1.5fr;
-    }
+}
 
-    .control {
-      justify-self: center;
-      align-self: center;
-    }
+.froggy {
+  width: 70px;
+}
 
-    .heading {
-      grid-column: 1/-1; /* gets header to span all columns */
-    }
+/* FIELD SECTION */
 
-/* REQUEST BOARD */
+#gold_coin {
+  height: 30px;
+}
 
-/* FARMING PATCH */
+.score {
+  grid-column: 1/5;
+  display: flex; /* allows for easy vertical and horizontal alignment on it's children */
+  align-items: center;
+  justify-content: flex-end;
 
+}
+
+.field_section {
+display: grid;
+justify-content: center;
+grid-gap: 10px;
+grid-template-columns: auto auto auto auto;
+}
+  
 .barepatch {
+  background-image: url("../images/soil.jpg");
+  background-size: contain; 
   justify-self: center;
   align-self: center;
 }
 
-/* CONTROLS */
+.watered {
+  background-image: url("../images/water.png"), url("../images/soil.jpg");
+  background-size: contain; 
+}
+
+.carrot_sown, .lettuce_sown, .potato_sown {
+  background-image: url("../images/sesame.png"), url("../images/soil.jpg");
+  background-size: contain;
+}
+
+.carrot_ready {
+  background-image: url("../images/carrot.png"), url("../images/soil.jpg");
+  background-size: contain;
+}
+
+.lettuce_ready {
+  background-image: url("../images/lettuce.png"), url("../images/soil.jpg");
+  background-size: contain;
+}
+
+.potato_ready {
+  background-image: url("../images/potato.png"), url("../images/soil.jpg");
+  background-size: contain;
+}
+
+.barepatch, .watered, .carrot_sown, .carrot_ready, .lettuce_ready, .lettuce_sown, .potato_sown, .potato_ready {
+  border: 2px #3F3F3F solid;
+  border-radius: 15%;
+  filter: brightness(1.5);
+  height: 80px;
+  width: 80px;
+}
+  
+/* REQUESTS SECTION */
+.request_section {
+  background: url("../images/chalkboard.png") no-repeat center;
+  background-size: 80%; 
+  padding-top: 80px;
+  padding-left: 150px;    
+}
+
+/* INSTRUCTIONS SECTION */
+
+.instructions_section {
+  padding-top: 0;
+}
+
+.instructions {
+  background-color: white;
+  border: 2px black solid;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* CONTROLS SECTION */
+
+.controls_section {
+  padding-top: 55px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr  1fr  1.5fr;
+  grid-template-rows: auto auto;
+  align-content: start;
+  grid-template-areas: 
+  ". . . . ."
+  ". merge merge merge ."; 
+}
+
+.merge {
+display: grid; 
+grid-auto-columns: 1fr; 
+grid-template-rows: 1fr; 
+gap: 0px 0px; 
+grid-area: merge; 
+}
+
+.control {
+  justify-self: center;
+  align-self: center;
+}
 
 .tool_button {
   padding: 30px;
@@ -140,10 +192,6 @@ body {
   background: #8DCCFC url("../images/hose.png") no-repeat center;
   background-size: 80%;
 }  
-
-/* #sow_carrot, #sow_lettuce, #sow_potato {
-  background-color: #50C781;
-} */
 
 #sow_carrot {
   background: #50C781 url("../images/carrot.png") no-repeat center;

@@ -8,32 +8,52 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text&family=Mynerve&display=swap" rel="stylesheet">
-
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
   <body>
     <main>
-
         <div class="wrapper">
+            <div class="box title">
+              <h1>Froggy's Farm</h1>
+              <img src="images/frog.png" alt="frog" class="froggy">
+            </div>
             <div class="box request_section">
                 <!-- Request board created in JavaScript -->
             </div>
             <div class="box field_section">
-                <div class="heading"><h1>Farming Game</h1></div>
+                <div class="score">
+                  <div class="score_text">
+                   <!-- Total Gold Number created in JavaScript -->
+                  </div>
+                  <img src="images/coin.png" alt="gold coin" id="gold_coin">
+                  
+                </div>
                 <!-- Farming grid created in JavaScript -->
                
             </div>
             <div class="box instructions_section">
-                <p>
-                Farmer Issy needs help with gathering enough crops for market!
+                <p class="instructions"> 
+                Farmer Froggy needs help with gathering enough crops for market!
                 Prepare the soil, sow the right crops, and harvest the fruits of your 
-                labour to work your way to completing Farmer Issy’s requests.  
+                labour to complete Farmer Froggy's requests and earn gold.  
                 </p>
+                <!-- <img src="images/frog.png" alt="frog" class="froggy"> -->
+
             </div>
             <div class="box controls_section">
               <div class="control"><button class="tool_button" id="prepare_soil"></button></div>
+              
               <div class="control"><button class="tool_button" id="sow_carrot"></button></div>
               <div class="control"><button class="tool_button" id="sow_lettuce"></button></div>
               <div class="control"><button class="tool_button" id="sow_potato"></button></div>
               <div class="control"><button class="tool_button" id="harvest"></button></div>
+              <div class="control"><p>Prepare Soil</p></div>
+              <div class="control merge"><p>Sow Crops</p></div>
+              
+              <div class="control"><p>Harvest</p></div>
+
 
             </div>
           </div>
