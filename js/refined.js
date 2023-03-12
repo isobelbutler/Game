@@ -13,15 +13,19 @@ let carrotPlayerCount = document.getElementById('carrot_count');
 let lettucePlayerCount = document.getElementById('lettuce_count');
 let potatoPlayerCount = document.getElementById('potato_count');
 
-
 let isWatering = false;
 let isHarvesting = false;
 let isPlantingCarrots = false;
 let isPlantingLettuce = false;
 let isPlantingPotato = false;
 
-// Functions
+let numCoinsShown = 0;
+let completedGameText = document.getElementById('completed-game');
+let pageWrapper = document.querySelector('.wrapper');
 
+
+
+// Functions
 
 function toggleWatering() {
   isWatering = !isWatering;
@@ -182,15 +186,37 @@ function winning () {
         carrotPlayer = 0;
         lettucePlayer = 0;
         potatoPlayer = 0;
-        gold += 100;
+        // gold += 100;
+        winGoldCoin();
         generateRequestBoardHTML();
-        document.querySelector('.score_text').innerHTML = gold;
+        // document.querySelector('.score_text').innerHTML = gold;
         // document.querySelector('.request_section').innerHTML = requestBoardHTML;
         carrotPlayerCount.innerHTML = `Carrots: ${carrotPlayer}/${cropTarget[1]}`;
         potatoPlayerCount.innerHTML = `Potatoes: ${potatoPlayer}/${cropTarget[2]}`;
         lettucePlayerCount.innerHTML = `Lettuce: ${lettucePlayer}/${cropTarget[0]}`;
     }
 }
+
+function endGame () {
+  if ( numCoinsShown === 3 ) {
+    completedGameText.style.display = 'flex';
+    pageWrapper.style.display = 'none';
+  }
+}
+
+function winGoldCoin () {
+  let greyCoins = document.querySelectorAll('.grey_coin');
+  let goldCoins = document.querySelectorAll('.gold_coin');
+
+  if ( numCoinsShown < greyCoins.length ) {
+   greyCoins[numCoinsShown].style.display = 'none'; 
+   goldCoins[numCoinsShown].style.display = 'flex';
+   numCoinsShown++;
+   endGame();
+  }
+}
+
+
 
 // Event listeners
 waterButton.addEventListener('click', toggleWatering);
@@ -212,5 +238,7 @@ for (let i = 0; i < soilPatches.length; i++) {
     harvestPatch(patch);
   });
 }
+
+
 
 

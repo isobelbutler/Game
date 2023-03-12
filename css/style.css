@@ -76,8 +76,15 @@ body {
 
 /* FIELD SECTION */
 
-#gold_coin {
+.gold_coin {
   height: 30px;
+  display: none;
+}
+
+.grey_coin {
+  height: 30px;
+  opacity: 30%;
+  /* filter: grayscale(100); */
 }
 
 .score {
@@ -211,4 +218,22 @@ grid-area: merge;
 #harvest {
   background: #FDB37D url("../images/shovel.png") no-repeat center;
   background-size: 80%;
+}
+
+/* COMPLETED GAME */
+
+#completed-game {
+  display: none;
+  height: 100vh;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#completed-game div {
+  display: flex;
+  width: 60%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px;
 }

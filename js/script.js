@@ -44,4 +44,5 @@ generateRequestBoardHTML();
 document.querySelector('.request_section').insertAdjacentHTML('beforeend', requestBoardHTML);
 
 // Generate gold score number
-document.querySelector('.score_text').insertAdjacentHTML('afterbegin', gold);
+// Removing as going to try a different way to complete the game.
+// document.querySelector('.score_text').insertAdjacentHTML('afterbegin', gold);
