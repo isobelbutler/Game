@@ -35,9 +35,20 @@ body {
   transform: skew(0, -4deg);
 }
 
-.control p, .request_section h2, .request_section p, h1 {
+.control p, .request_section h2, .request_section p, h1, #completed-game a {
   font-family: 'Mynerve', cursive;
 }
+
+#completed-game a {
+  text-decoration: none;
+  color: black; 
+  font-size: 24px;
+}
+
+#completed-game a:hover {
+  color: #EC5A1F;
+}
+
 .request_section p {
   text-align: left;
   font-size: 20px;
@@ -236,4 +247,16 @@ grid-area: merge;
   flex-wrap: wrap;
   justify-content: center;
   gap: 60px;
+}
+
+#completed-game img {
+  width: 100%;
+  padding: 0 35%;
+}
+
+#completed-game a {
+  background-color: #F7EAD3;
+  border: 2px black solid;
+  padding: 20px;
+  border-radius: 11px;
 }
