@@ -23,7 +23,8 @@ let numCoinsShown = 0;
 let completedGameText = document.getElementById('completed-game');
 let pageWrapper = document.querySelector('.wrapper');
 
-
+let stageButton = document.getElementById('next-round-button');
+let popUp = document.getElementById('popup-wrap');
 
 // Functions
 
@@ -182,13 +183,13 @@ function harvestPatch(patch) {
 function winning () {
     if (carrotPlayer === cropTarget [1] && lettucePlayer === cropTarget[0] && potatoPlayer === cropTarget[2]) {
         console.log('You did it!');
-        alert('You did it!');
         carrotPlayer = 0;
         lettucePlayer = 0;
         potatoPlayer = 0;
         // gold += 100;
         winGoldCoin();
         generateRequestBoardHTML();
+        popUpShow();
         // document.querySelector('.score_text').innerHTML = gold;
         // document.querySelector('.request_section').innerHTML = requestBoardHTML;
         carrotPlayerCount.innerHTML = `Carrots: ${carrotPlayer}/${cropTarget[1]}`;
@@ -202,6 +203,15 @@ function endGame () {
     completedGameText.style.display = 'flex';
     pageWrapper.style.display = 'none';
   }
+}
+
+function popUpShow () { 
+  if ( numCoinsShown < 3 ) {
+  popUp.style.display = 'flex';
+
+  stageButton.addEventListener('click', () => {
+    popUp.style.display = 'none';
+  });}
 }
 
 function winGoldCoin () {
