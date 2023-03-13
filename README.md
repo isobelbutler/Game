@@ -11,9 +11,12 @@
 I started out by considering what kind of game related to my interests, and came upon the idea of making something related to gardening or farming as I used to work on a farm, and also love gardening! My first outline for the idea was a farm which the user would be able to interact with by watering the soil, sowing seeds, and harvesting crops. I thought about how this could be made into something that could be completed and came up with the idea of a random number generator that would display numbers of crops that needed to be harvested in order the complete the game.
 
 I began by designing this basic idea on Figma, as shown:
-![Original Farm Game design](images/FigmaFarmFirst.png)
+<!-- ![Original Farm Game design](images/FigmaFarmFirst.png) -->
+<img src="images/FigmaFarmFirst.png" alt= “FirstDesign” width="300">
 And then ended on this version which I would start building from:
-![Final Farm Game design](images/FigmaFarmLast.png)
+<img src="images/FigmaFarmLast.png" alt= “LastDesign” width="300">
+
+<!-- ![Final Farm Game design](images/FigmaFarmLast.png) -->
 
 ## Building
 
@@ -361,7 +364,8 @@ and turns off all other buttons where *harvestButton === harvestButton*. This le
 ### Issue: Field grid column collapses if all tiles in row are selected.
 **Solution:**
  I forgot to apply the height/width styling to the changed classes as well as *.barepatch*.
-*Before:*
+*Before:*  
+
 ```css
  .barepatch {
     background-image: url("../images/soil.jpg");
@@ -370,7 +374,8 @@ and turns off all other buttons where *harvestButton === harvestButton*. This le
     width: 80px;
     }
 ```
-*After:*
+*After:*  
+
 ```css
 .barepatch, .watered, .carrot_sown, .carrot_ready, .lettuce_ready, .lettuce_sown, .potato_sown, .potato_ready {
       border: 2px #3F3F3F solid;
