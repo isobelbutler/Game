@@ -12,9 +12,9 @@ I started out by considering what kind of game related to my interests, and came
 
 I began by designing this basic idea on Figma, as shown:
 <!-- ![Original Farm Game design](images/FigmaFarmFirst.png) -->
-<img src="images/FigmaFarmFirst.png" alt= “FirstDesign” width="300">
+<img src="images/FigmaFarmFirst.png" alt= “FirstDesign” width="500">
 And then ended on this version which I would start building from:
-<img src="images/FigmaFarmLast.png" alt= “LastDesign” width="300">
+<img src="images/FigmaFarmLast.png" alt= “LastDesign” width="500">
 
 <!-- ![Final Farm Game design](images/FigmaFarmLast.png) -->
 
