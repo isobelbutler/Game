@@ -53,7 +53,7 @@ let randomNumber = Math.floor(Math.random() * 5) + 1;
 ```
 
 **Solution:**
-My idea had been to display randomNumber three times to show three different crop requests. I realised I'd forgotten that randomNumber would just display the same number each time. To get around this without creating three different random number variables for each crop, I created an empty set and then a loop which would run until three items had been added to the set:
+My idea had been to display *randomNumber* three times to show three different crop requests. I realised I'd forgotten that *randomNumber* would just display the same number each time. To get around this without creating three different random number variables for each crop, I created an empty set and then a loop which would run until three items had been added to the set:
 ```javascript
 const randomNumber = new Set();
 
@@ -77,7 +77,7 @@ cropTarget = Array.from(randomNumber);
 ```     
 
 ### Issue: Selecting an individual patch in different states using new functions each time.
-**Orginal code:** 
+**Original code:** 
 ```javascript
 const bareSoil = Array.from(document.querySelectorAll('.barepatch'));
 
@@ -100,15 +100,15 @@ for (let i = 0; i < bareSoil.length; i++) {
 }
 ```
 **Solution:** 
-Rather than creating an unecessary array in combo with querySelectorAll I changed it to just a querySelectorAll:
+Rather than creating an unecessary array in combo with *querySelectorAll* I changed it to just a *querySelectorAll*:
 ```javascript
 let soilPatches = document.querySelectorAll('.barepatch');
 ```
-And then added a single for loop which could be used again and again. The italicised code is purely so I could tell which patch was being interacted with. By then adding one addEventListener which would listen for multiple functions (written elsewhere) rather than nesting addEventListeners and functions within each other, my code instantly became much more organised: 
+And then added a single for loop which could be used again and again. The *dataset.id* is  so I could tell which patch was being interacted with in the console. By then adding one *addEventListener* which would listen for multiple functions (written elsewhere) rather than nesting *addEventListeners* and functions within each other, my code instantly became much more organised: 
 ```javascript
 for (let i = 0; i < soilPatches.length; i++) {
   const patch = soilPatches[i];
-  *patch.dataset.id = i + 1; // numbers the patches so you can tell which is working*
+  patch.dataset.id = i + 1; // numbers the patches so you can tell which is working*
 
   patch.addEventListener('click', () => {
     waterPatch(patch);
@@ -130,16 +130,16 @@ for (let i = 0; i < soilPatches.length; i++) {
         }
 ```
 **Solution:** 
-In my original code when I watered a patch, a variable called soilWatered would switch from false to true.
+In my original code when I watered a patch, a variable called *soilWatered* would switch from false to true.
 However, this meant that even if I watered a random patch, if I had clicked the toggled the water button even once, the user would be able to sow crops anywhere.
 
-To fix this I removed the soilWatered variable altogether and instead focused on the changed class state. When going to plant a crop I added the classList.contains condition which would check whether that specific patch had been watered.
+To fix this I removed the *soilWatered* variable altogether and instead focused on the changed class state. When going to plant a crop I added the *classList.contains* condition which would check whether that specific patch had been watered.
 
 ```javascript
 function waterPatch(patch) {
   if (isWatering) {
-    **patch.classList.add('watered');**
-    **patch.classList.remove('barepatch');**
+    patch.classList.add('watered');
+    patch.classList.remove('barepatch');
     console.log(`Watered patch ${patch.dataset.id}`);
   } else {
     console.log('Watering is not on');
@@ -147,13 +147,13 @@ function waterPatch(patch) {
 }
 
 function plantCarrot(patch) {
-  if (isPlantingCarrots && **patch.classList.contains('watered')**) {
+  if (isPlantingCarrots && patch.classList.contains('watered')) {
     ... }
     }
 ```
 ### Issue: 
 1. Code working when entered into the console, but not in Visual Code. 
-2. wateredSoil array showing up as empty.
+2. *wateredSoil* array showing up as empty.
 3. Functions needing to be nested inside of each other - messy and error prone!
 
 **Original Code:**
@@ -191,7 +191,7 @@ for (let i = 0; i < wateredSoil.length; i++) {
 };
 ```
 **Solution:**
-This took a good while to realise that I needed to completely restructure and simplify my code rather than have functions nested within each other. I first clocked the issue when trying to access the waterSoil array and it showing up as empty. I couldn't spot any syntax errors and then finally realised that because the code was called upon loading, the array wasn't updating when adding new values. I moved the array from it's position outside of the for loop to within the detectClick function which fixed the problem of it showing up as empty.
+This took a good while to realise that I needed to completely restructure and simplify my code rather than have functions nested within each other. I first clocked the issue when trying to access the *waterSoil* array and it showing up as empty. I couldn't spot any syntax errors and then finally realised that because the code was called upon loading, the array wasn't updating when adding new values. I moved the array from it's position outside of the for loop to within the *detectClick* function which fixed the problem of it showing up as empty.
 
 However, this opened a whole new can of worms. Whilst my array was fixed I realised that for my code to work in it's current format I would have to create a long nested function with lots of conditions:
 ```javascript
@@ -224,7 +224,7 @@ for (let i = 0; i < bareSoil.length; i++) {
     })
 };
 ```
- I took a step back and realised I needed to massively refine my code, reorganise, and seperate out all the event listeners, functions, and variables. This led me to my current code which was much cleaner.
+ I took a step back and realised I needed to massively refine my code, reorganise, and seperate out all the event listeners, functions, and variables. This led me to my current code which feels much cleaner.
 
 
 ### Issue: Player crop count keeps counting even when met target.
@@ -243,7 +243,7 @@ function harvestPatch(patch) {
 }
 ```
 **Solution:**
-Remove the carrotPlayer variable and .innerHTML from the harvestPatch function and create a new function which only runs if the player hasn't met the crop target, then call this function in the harvestPatch function:
+Remove the *carrotPlayer* variable and *.innerHTML* from the *harvestPatch* function and create a new function which only runs if the player hasn't met the crop target, then call this function in the *harvestPatch* function:
 ```javascript
 function countCarrots() {
    
@@ -263,7 +263,7 @@ function harvestPatch(patch) {
     } else ...
 }
 ```
-#### Issue: Tool button remains selected even when clicking on another tool button. 
+### Issue: Tool button remains selected even when clicking on another tool button. 
 
 **Original code:**
 ```HTML
@@ -275,7 +275,7 @@ function harvestPatch(patch) {
     <div class="control"><button class="tool_button" id="harvest"></button></div>
 </div>
 ```
-I changed this so that each button was a radio instead, meaning only one could be selected at a time. However, this removed my button styling and replaced it with a default radio button, so I added labels with corresponding css that would make them display like my original button, and used display: none to hide the default radio button.
+I changed this so that each button was a radio instead, meaning only one could be selected at a time. However, this removed my button styling and replaced it with a default radio button, so I added labels with corresponding CSS that would make them display like my original button, and used *display: none* to hide the default radio button.
 ```html
 <div class="box controls_section">
     <div class="control">
@@ -317,12 +317,12 @@ I changed this so that each button was a radio instead, meaning only one could b
   background-size: 80%;
 }
 ```
-I then needed to update my JS so that my waterButton variable pointed to the label rather than the old button ID:
+I then needed to update my JS so that my *waterButton* variable pointed to the label rather than the old button ID:
 ```
 let waterButton = document.getElementById('prepare_soil');
 let waterButton = document.querySelector('.tool_prepare_soil');
 ```
-I then realised that by setting .tool_button display to none, I also lost the benefits of using the radio input in the first place, so stopped to rethink.
+I then realised that by setting *.tool_button* display to none, I also lost the benefits of using the radio input in the first place, so stopped to rethink.
 
 I decided to go back to my original HTML, and change the buttons active status via JS:
 ```javascript
@@ -352,13 +352,13 @@ function toggleButtons(activeButton) {
   }
 ```
 This code turns off all other buttons when one is clicked. I'll explain using the harvest button.
-The toggleHarvesting function has an event handler which listens for a click and then toggles the true/false value of the variable isHarvesting.
-The toggleHarvesting function then calls the toggleButtons function using the harvestButton as the argument. The toggleButtons function loops through all the buttons 
-and turns off all other buttons where harvestButton === harvestButton. This leaves the isHarvesting value as true, meaning it can be used, and changes the button appearance so that the user knows it's active. 
+The *toggleHarvesting* function has an event handler which listens for a click and then toggles the true/false value of the variable *isHarvesting*.
+The *toggleHarvesting* function then calls the *toggleButton*s function using the *harvestButton* as the argument. The *toggleButton*s function loops through all the buttons 
+and turns off all other buttons where *harvestButton === harvestButton*. This leaves the *isHarvesting* value as true, meaning it can be used, and changes the button appearance so that the user knows it's active. 
 
 ### Issue: Field grid column collapses if all tiles in row are selected.
 **Solution:**
- I forgot to apply the height/width styling to the changed classes as well as barepatch.
+ I forgot to apply the height/width styling to the changed classes as well as *.barepatch*.
 *Before:*
 ```css
  .barepatch {
