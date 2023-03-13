@@ -38,9 +38,11 @@ And then ended on this version which I would start building from:
     - Upon harvesting the seed, a variable counts how many of each crop has been harvested.
     - Upon harvesting, the soil patch returns back to it's original 'baresoil' state, so that it is reusable.
 10. Make the crop counting variable stop counting when it reaches the target amount.
-
-Extra ideas:
-Make it so that when you complete a round, you unlock something new, like a sunshine, a house or something, or maybe you earn coins or XP.
+11. Add rounds to the game in which a prize is won after completing the requestboard.
+  - I originally added a counter which would add 100 coins but then realised this didn't lead to an endpoint in the game.
+  - I came up with adding three gold coins which would show as faded and then were earned one by one after succesfully completing the requests.
+12. Add a game complete screen with a prize (the golden hamper), and a way for the user to replay the game.
+13. Replace the default alert popup after completing a round with a custom div popup.
 
 
 ## Debugging
