@@ -28,8 +28,10 @@ let popUp = document.getElementById('popup-wrap');
 
 // Functions
 
+// TOGGLES WATERING STATE AND CALLS THE toggleButtons FUNCTION
+  
 function toggleWatering() {
-  isWatering = !isWatering;
+  isWatering = !isWatering; // negation operator sets isWatering to whatever the other boolean state is
   toggleButtons(waterButton);
   console.log(`Watering is ${isWatering ? 'on' : 'off'}`); // ternary operator 'isWatering' is truthy='on' or falsy='off'
 }
@@ -58,9 +60,11 @@ function toggleHarvesting() {
     console.log(`Harvesting is ${isHarvesting ? 'on' : 'off'}`);
 }
 
+// TOGGLE BUTTONS ON/OFF 
+    // activeButton represents the button just clicked and passes it as the argument
+    // loops through all buttons and turn them off if not the clicked button
+    // sets their boolean variables to false, and reduces the opacity of the clicked button so that it's clear it's selected
 function toggleButtons(activeButton) {
-    // activeButton passes the button just clicked as the argument
-    // Loop through all buttons and turn them off if not the clicked button.
     for (let button of [waterButton, carrotButton, lettuceButton, potatoButton, harvestButton]) {
       if (button !== activeButton) {
         button.style.opacity = 1;
@@ -72,7 +76,7 @@ function toggleButtons(activeButton) {
         if (button === harvestButton) isHarvesting = false;
       }
     }
-    // Turn on the active button
+    // turn on the active button
     activeButton.style.opacity = 0.7;
   }
 

@@ -8,7 +8,7 @@
 
 ## Planning
 
-I started out by considering what kind of game related to my interests, and came upon the idea of making something related to gardening or farming as I used to work on a farm, and also love gardening! My first outline for the idea was a farm which the user would be able to interact with by watering the soil, sowing seeds, and harvesting crops. I thought about how this could be made into something that could be completed and came up with the idea of a random number generator that would display numbers of crops that needed to be harvested in order the complete the game.
+I started out by considering what kind of game related to my interests and came upon the idea of making something related to gardening or farming as I used to work on a farm, and also love gardening! My first outline for the idea was a farm which the user would be able to interact with by watering the soil, sowing seeds, and harvesting crops. I thought about how this could be made into something that could be completed and came up with the idea of a random number generator that would display numbers of crops that needed to be harvested in order the complete the game.
 
 I began by designing this basic idea on Figma, as shown:
 <!-- ![Original Farm Game design](images/FigmaFarmFirst.png) -->
@@ -39,11 +39,11 @@ And then ended on this version which I would start building from:
     - Requires the watering tool to be selected.
     - Requires the patch to be 'seed_ready'. 
     - Upon harvesting the seed, a variable counts how many of each crop has been harvested.
-    - Upon harvesting, the soil patch returns back to it's original 'baresoil' state, so that it is reusable.
+    - Upon harvesting, the soil patch returns to its original 'baresoil' state, so that it is reusable.
 10. Make the crop counting variable stop counting when it reaches the target amount.
-11. Add rounds to the game in which a prize is won after completing the requestboard.
+11. Add rounds to the game in which a prize is won after completing the request board.
     - I originally added a counter which would add 100 coins but then realised this didn't lead to an endpoint in the game.
-    - I came up with adding three gold coins which would show as faded and then were earned one by one after succesfully completing the requests.
+    - I came up with adding three gold coins which would show as faded and then were earned one by one after successfully completing the requests.
 12. Add a game complete screen with a prize (the golden hamper), and a way for the user to replay the game.
 13. Replace the default alert popup after completing a round with a custom div popup.
 
@@ -67,7 +67,7 @@ while ( randomNumber.size !== 3 ) {
       }
 ```
 
-I then turned this set into an array, which meant I could then call the particular random number from it's index position:
+I then turned this set into an array, which meant I could then call the particular random number from its index position:
 
 ```javascript
 cropTarget = Array.from(randomNumber);
@@ -105,11 +105,11 @@ for (let i = 0; i < bareSoil.length; i++) {
 }
 ```
 **Solution:** 
-Rather than creating an unecessary array in combo with *querySelectorAll* I changed it to just a *querySelectorAll*:
+Rather than creating an unnecessary array in combo with *querySelectorAll* I changed it to just a *querySelectorAll*:
 ```javascript
 let soilPatches = document.querySelectorAll('.barepatch');
 ```
-And then added a single for loop which could be used again and again. The *dataset.id* is  so I could tell which patch was being interacted with in the console. By then adding one *addEventListener* which would listen for multiple functions (written elsewhere) rather than nesting *addEventListeners* and functions within each other, my code instantly became much more organised: 
+And then added a single for loop which could be used again and again. The *dataset.id* is so I could tell which patch was being interacted with in the console. By then adding one *addEventListener* which would listen for multiple functions (written elsewhere) rather than nesting *addEventListeners* and functions within each other, my code instantly became much more organised: 
 ```javascript
 for (let i = 0; i < soilPatches.length; i++) {
   const patch = soilPatches[i];
@@ -157,7 +157,7 @@ function plantCarrot(patch) {
     }
 ```
 ### Issue: 
-1. Code working when entered into the console, but not in Visual Code. 
+1. Code working in the console, but not in Visual Code. 
 2. *wateredSoil* array showing up as empty.
 3. Functions needing to be nested inside of each other - messy and error prone!
 
@@ -196,9 +196,9 @@ for (let i = 0; i < wateredSoil.length; i++) {
 };
 ```
 **Solution:**
-This took a good while to realise that I needed to completely restructure and simplify my code rather than have functions nested within each other. I first clocked the issue when trying to access the *waterSoil* array and it showing up as empty. I couldn't spot any syntax errors and then finally realised that because the code was called upon loading, the array wasn't updating when adding new values. I moved the array from it's position outside of the for loop to within the *detectClick* function which fixed the problem of it showing up as empty.
+This took a good while to realise that I needed to completely restructure and simplify my code rather than have functions nested within each other. I first clocked the issue when trying to access the *waterSoil* array and it showed up as empty. I couldn't spot any syntax errors and then finally realised that because the code was called upon loading, the array wasn't updating when adding new values. I moved the array from its position outside of the for loop to within the *detectClick* function which fixed the problem of it showing up as empty.
 
-However, this opened a whole new can of worms. Whilst my array was fixed I realised that for my code to work in it's current format I would have to create a long nested function with lots of conditions:
+However, this opened a whole new can of worms. Whilst my array was fixed, I realised that for my code to work in its current format I would have to create a long nested function with lots of conditions:
 ```javascript
 for (let i = 0; i < bareSoil.length; i++) {
     bareSoil[i].addEventListener("click", function checkSoilClick(event) {
@@ -229,7 +229,7 @@ for (let i = 0; i < bareSoil.length; i++) {
     })
 };
 ```
- I took a step back and realised I needed to massively refine my code, reorganise, and seperate out all the event listeners, functions, and variables. This led me to my current code which feels much cleaner.
+ I took a step back and realised I needed to massively refine my code, reorganise, and separate out all the event listeners, functions, and variables. This led me to my current code which feels much cleaner.
 
 
 ### Issue: Player crop count keeps counting even when met target.
@@ -280,7 +280,7 @@ function harvestPatch(patch) {
     <div class="control"><button class="tool_button" id="harvest"></button></div>
 </div>
 ```
-I changed this so that each button was a radio instead, meaning only one could be selected at a time. However, this removed my button styling and replaced it with a default radio button, so I added labels with corresponding CSS that would make them display like my original button, and used *display: none* to hide the default radio button.
+I changed this so that each button was a radio instead, meaning only one could be selected at a time. However, this removed my button styling and replaced it with a default radio button, so I added labels with corresponding CSS that would make them display like my original button and used *display: none* to hide the default radio button.
 ```html
 <div class="box controls_section">
     <div class="control">
