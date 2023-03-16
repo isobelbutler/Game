@@ -14,61 +14,75 @@
     <link rel="manifest" href="images/favicon/site.webmanifest">
   <body>
     <main>
+
+      <!-- This popup is hidden by default, but shown each time player completes a round -->
       <div id="popup-wrap">
         <div id="popup-inner">
           <p>Well done, you've earnt a coin!</p>
           <button id="next-round-button">Okay</button>
         </div>
       </div>
+
+      <!-- GAME WRAPPER -->
         <div class="wrapper">
           
+          <!-- GAME TITLE -->
             <div class="box title">
               <h1>Froggy's Farm</h1>
               <img src="images/frog.png" alt="frog" class="froggy">
             </div>
+
+            <!-- REQUEST BOARD -->
             <div class="box request_section">
                 <!-- Request board created in JavaScript -->
             </div>
+
+            <!-- FIELD/SOIL SECTION -->
             <div class="box field_section">
-                <div class="score">
-                  <div class="score_text">
-                   <!-- Total Gold Number created in JavaScript -->
-                  </div>
-                  <img src="images/coin.png" alt="grey coin" class="grey_coin">
-                  <img src="images/coin.png" alt="grey coin" class="grey_coin">
-                  <img src="images/coin.png" alt="grey coin" class="grey_coin">
-                  <img src="images/coin.png" alt="gold coin" class="gold_coin">
-                  <img src="images/coin.png" alt="gold coin" class="gold_coin">
-                  <img src="images/coin.png" alt="gold coin" class="gold_coin">
-                
-                </div>
-                <!-- Farming grid created in JavaScript -->  
+              <div class="score">
+                <!-- These coins show/hide with CSS/JS after each round - 1 grey gets hidden, 1 gold gets shown -->
+                <img src="images/coin.png" alt="grey coin" class="grey_coin">
+                <img src="images/coin.png" alt="grey coin" class="grey_coin">
+                <img src="images/coin.png" alt="grey coin" class="grey_coin">
+                <img src="images/coin.png" alt="gold coin" class="gold_coin">
+                <img src="images/coin.png" alt="gold coin" class="gold_coin">
+                <img src="images/coin.png" alt="gold coin" class="gold_coin">
+              </div>    
+              
+              <!-- Soil patches/tiles are generated in JavaScript -->
             </div>
+          
+
+            <!-- INSTRUCTIONS SECTION -->
             <div class="box instructions_section">
                 <p class="instructions"> 
                 Farmer Froggy needs help with gathering enough crops for market!
                 Prepare the soil, sow the right crops, and harvest the fruits of your 
                 labour to complete Farmer Froggy's requests and earn gold.  
                 </p>
-                <!-- <img src="images/frog.png" alt="frog" class="froggy"> -->
-
             </div>
+
+            <!-- PLAYER CONTROLS SECTION -->
             <div class="box controls_section">
+              <!-- Prepare the soil -->
               <div class="control"><button class="tool_button" id="prepare_soil"></button></div>
-              
+            
+              <!-- Sow a seed: carrot, lettuce or potato -->
               <div class="control"><button class="tool_button" id="sow_carrot"></button></div>
               <div class="control"><button class="tool_button" id="sow_lettuce"></button></div>
               <div class="control"><button class="tool_button" id="sow_potato"></button></div>
+
+              <!-- Harvest the grown crop -->
               <div class="control"><button class="tool_button" id="harvest"></button></div>
+
+              <!-- These captions sit under the tools using CSS grid layout -->
               <div class="control"><p>Prepare Soil</p></div>
               <div class="control merge"><p>Sow Crops</p></div>
-              
               <div class="control"><p>Harvest</p></div>
-
-
             </div>
-          </div>
+        </div>
 
+          <!-- FINAL SCREEN - shown upon game completion with JS -->
           <div id="completed-game">
             <div>
               <h1>Well done, you earnt all three gold coins! To thank you for all your help Farmer Froggy gives you a rare golden hamper!</h1>

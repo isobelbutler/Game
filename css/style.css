@@ -1,3 +1,16 @@
+/* Contents:
+  1. General Styling
+  2. Fonts
+  3. Grid Layout
+  4. Title Section
+  5. Field Section
+  6. Requests Section
+  7. Instructions Section
+  8. Controls Section
+  9. Completed Game Screen
+  10. Pop-up
+*/
+
 /* GENERAL STYLING */
 * {
     box-sizing: border-box;
@@ -30,12 +43,17 @@ body {
   font-size: 24px;
 }
 
-.request_section h2, .request_section p {
+.request_section h2, 
+.request_section p {
   color: white;
   transform: skew(0, -4deg);
 }
 
-.control p, .request_section h2, .request_section p, h1, #completed-game a {
+.control p, 
+.request_section h2, 
+.request_section p, 
+h1, 
+#completed-game a {
   font-family: 'Mynerve', cursive;
 }
 
@@ -87,13 +105,16 @@ body {
 
 /* FIELD SECTION */
 
-.gold_coin {
+.gold_coin, 
+.grey_coin {
   height: 30px;
+}
+
+.gold_coin {
   display: none;
 }
 
 .grey_coin {
-  height: 30px;
   opacity: 30%;
   /* filter: grayscale(100); */
 }
@@ -107,50 +128,55 @@ body {
 }
 
 .field_section {
-display: grid;
-justify-content: center;
-grid-gap: 10px;
-grid-template-columns: auto auto auto auto;
+  display: grid;
+  justify-content: center;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto; /* 4 x 4 grid */
 }
   
 .barepatch {
   background-image: url("../images/soil.jpg");
-  background-size: contain; 
   justify-self: center;
   align-self: center;
 }
 
+  /* two background images means they are overlaid - so can still see soil */
 .watered {
   background-image: url("../images/water.png"), url("../images/soil.jpg");
-  background-size: contain; 
 }
 
-.carrot_sown, .lettuce_sown, .potato_sown {
+.carrot_sown, 
+.lettuce_sown, 
+.potato_sown {
   background-image: url("../images/sesame.png"), url("../images/soil.jpg");
-  background-size: contain;
 }
 
 .carrot_ready {
   background-image: url("../images/carrot.png"), url("../images/soil.jpg");
-  background-size: contain;
 }
 
 .lettuce_ready {
   background-image: url("../images/lettuce.png"), url("../images/soil.jpg");
-  background-size: contain;
 }
 
 .potato_ready {
   background-image: url("../images/potato.png"), url("../images/soil.jpg");
-  background-size: contain;
 }
 
-.barepatch, .watered, .carrot_sown, .carrot_ready, .lettuce_ready, .lettuce_sown, .potato_sown, .potato_ready {
+.barepatch, 
+.watered, 
+.carrot_sown, 
+.carrot_ready, 
+.lettuce_ready, 
+.lettuce_sown, 
+.potato_sown, 
+.potato_ready {
   border: 2px #3F3F3F solid;
   border-radius: 15%;
   filter: brightness(1.5);
   height: 80px;
   width: 80px;
+  background-size: contain;
 }
   
 /* REQUESTS SECTION */
@@ -179,7 +205,7 @@ grid-template-columns: auto auto auto auto;
 .controls_section {
   padding-top: 55px;
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr  1fr  1.5fr;
+  grid-template-columns: 1.5fr 1fr 1fr  1fr  1.5fr; /* first and last control get more space, to show user they are seperate */
   grid-template-rows: auto auto;
   align-content: start;
   grid-template-areas: 
@@ -187,12 +213,13 @@ grid-template-columns: auto auto auto auto;
   ". merge merge merge ."; 
 }
 
+  /* for getting the sow seeds controls to merge together */
 .merge {
-display: grid; 
-grid-auto-columns: 1fr; 
-grid-template-rows: 1fr; 
-gap: 0px 0px; 
-grid-area: merge; 
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-area: merge; 
 }
 
 .control {
